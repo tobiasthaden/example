@@ -1,0 +1,165 @@
+import { Meta, Canvas, IconGallery, IconItem } from "@storybook/addon-docs";
+import { Spacer } from "./Layout";
+import Playground from "./Playground";
+import * as Icon from "@/components/icons";
+
+<Meta title="Layout & Styleguide" />
+
+# 🤓 Documentation
+
+Here we document all of our theme configurations – like CSS Variables and styles components.
+
+<Spacer />
+
+## 🎨 CSS Variables
+
+Here we define our theme variables.
+
+| Paradigm | Variable                        | Type           |
+| -------- | ------------------------------- | -------------- |
+| Base     | --background                    | `List<Number>` |
+|          | --text-primary                  | `List<Number>` |
+|          | --text-secondary                | `List<Number>` |
+|          | --text-link                     | `List<Number>` |
+|          | --text-link-hover               | `List<Number>` |
+|          | --border-color                  | `List<Number>` |
+|          | --border-width                  | `String`       |
+|          | --border-radius                 | `String`       |
+| Buttons  | --button-primary-text           | `List<Number>` |
+|          | --button-primary-text-hover     | `List<Number>` |
+|          | --button-primary-bg             | `List<Number>` |
+|          | --button-primary-bg-hover       | `List<Number>` |
+|          | --button-primary-border         | `List<Number>` |
+|          | --button-primary-border-hover   | `List<Number>` |
+|          | --button-primary-border-width   | `String`       |
+|          | --button-secondary-text         | `List<Number>` |
+|          | --button-secondary-text-hover   | `List<Number>` |
+|          | --button-secondary-bg           | `List<Number>` |
+|          | --button-secondary-bg-hover     | `List<Number>` |
+|          | --button-secondary-border       | `List<Number>` |
+|          | --button-secondary-border-hover | `List<Number>` |
+|          | --button-secondary-border-width | `String`       |
+|          | --button-border-radius          | `String`       |
+| Controls | --input-border-radius           | `String`       |
+|          | --input-border-width            | `String`       |
+|          | --input-text                    | `List<Number>` |
+|          | --input-text-focus              | `List<Number>` |
+|          | --input-text-placeholder        | `List<Number>` |
+|          | --input-bg                      | `List<Number>` |
+|          | --input-bg-focus                | `List<Number>` |
+|          | --input-border                  | `List<Number>` |
+|          | --input-border-focus            | `List<Number>` |
+|          | --input-error-text              | `List<Number>` |
+|          | --input-error-text-placeholder  | `List<Number>` |
+|          | --input-error-bg                | `List<Number>` |
+|          | --input-error-bg-focus          | `List<Number>` |
+|          | --input-error-border            | `List<Number>` |
+|          | --input-error-border-focus      | `List<Number>` |
+|          | --option-bg-hover               | `List<Number>` |
+|          | --option-text-hover             | `List<Number>` |
+|          | --option-error-bg-hover         | `List<Number>` |
+|          | --option-error-text-hover       | `List<Number>` |
+
+<Spacer />
+
+## 🕹 Playground
+
+<Playground />
+
+<Spacer />
+
+# 👀 Iconography
+
+Here we document our icon components. Icons fit best on a squared canvas [24px, 24px].
+
+<Spacer />
+
+<IconGallery>
+    <IconItem name="Alert">
+        <Icon.Alert />
+    </IconItem>
+    <IconItem name="Checkmark">
+        <Icon.Checkmark />
+    </IconItem>
+    <IconItem name="Close">
+        <Icon.Close />
+    </IconItem>
+    <IconItem name="Convoy">
+        <Icon.Convoy />
+    </IconItem>
+    <IconItem name="Dots.Horizontal">
+        <Icon.Dots.Horizontal />
+    </IconItem>
+    <IconItem name="Dots.Vertical">
+        <Icon.Dots.Vertical />
+    </IconItem>
+    <IconItem name="Menu">
+        <Icon.Menu />
+    </IconItem>
+    <IconItem name="Search">
+        <Icon.Search />
+    </IconItem>
+</IconGallery>
+
+<Spacer />
+
+## Media
+
+<IconGallery>
+    <IconItem name="Media.Fullscreen">
+        <Icon.Media.Fullscreen />
+    </IconItem>
+    <IconItem name="Media.Loud">
+        <Icon.Media.Loud />
+    </IconItem>
+    <IconItem name="Media.Mute">
+        <Icon.Media.Mute />
+    </IconItem>
+    <IconItem name="Media.Pause">
+        <Icon.Media.Pause />
+    </IconItem>
+    <IconItem name="Media.Play">
+        <Icon.Media.Play />
+    </IconItem>
+</IconGallery>
+
+<Spacer />
+
+## Directions
+
+<IconGallery>
+    <IconItem name="Direction.East">
+        <Icon.Direction.East />
+    </IconItem>
+    <IconItem name="Direction.West">
+        <Icon.Direction.West />
+    </IconItem>
+    <IconItem name="Direction.North">
+        <Icon.Direction.North />
+    </IconItem>
+    <IconItem name="Direction.South">
+        <Icon.Direction.South />
+    </IconItem>
+</IconGallery>
+
+<Spacer />
+
+## Socials
+
+<IconGallery>
+    <IconItem name="Social.Facebook">
+        <Icon.Social.Facebook />
+    </IconItem>
+    <IconItem name="Social.Instagram">
+        <Icon.Social.Instagram />
+    </IconItem>
+    <IconItem name="Social.Linkedin">
+        <Icon.Social.Linkedin />
+    </IconItem>
+    <IconItem name="Social.Twitter">
+        <Icon.Social.Twitter />
+    </IconItem>
+    <IconItem name="Social.Youtube">
+        <Icon.Social.Youtube />
+    </IconItem>
+</IconGallery>

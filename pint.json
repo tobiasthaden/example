@@ -1,0 +1,14 @@
+{
+    "preset": "psr12",
+    "rules": {
+        "simplified_null_return": true,
+        "single_trait_insert_per_statement": false,
+        "new_with_braces": {
+            "anonymous_class": false,
+            "named_class": false
+        }
+    },
+    "exclude": [
+        "tests"
+    ]
+}

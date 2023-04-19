@@ -1,0 +1,23 @@
+name: Build Application For SSR
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.1'
+
+      - uses: actions/checkout@v3
+
+      - name: Install Application
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist && npm install
+
+      - name: Build SSR
+        run: npm run build

@@ -1,0 +1,204 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Spacer } from "./Layout";
+import Playground from "./Playground";
+
+<Meta title="Documentation" />
+
+# 🤓 Documentation
+
+Here we document all of our global configurations – like Actions, React Hooks, or third party implementations.
+
+<Spacer />
+
+## 🍞 Toast Messages
+
+```jsx
+import { handleToasts } from "@/actions/handleToasts";
+
+const [Toast, message] = handleToasts();
+
+return <React.Fragment>
+    {message && <Toast>{message}</Toast>}
+</React.Fragment>
+```
+
+**Note**: The `Toast` component is provided by the `handleToasts` action and must not be importet.
+
+<Spacer />
+
+## 📟 Pagination
+
+```jsx
+import { handlePaginations } from "@/actions/handlePaginations";
+
+const items = handlePaginations({ onEachSide: 5, ...posts.paginator });
+
+return <Pagination items={items} />
+```
+Despite the fact that we'll prefer rendering paginations directly from the `Paginator` response – you may
+build the pagination by your own using the underlying `Current`, `Link` and `Space` components.
+
+<Spacer />
+
+## 📺 Media Hooks
+
+The `useAudio`, `useVideo` hooks makes it easy to integrate and control `HTMLMediaElement`.
+
+These hooks take one parameter which is a `React.MutableRefObject` like so:
+
+```jsx
+const ref = useRef();
+const video = useVideo(ref);
+
+return <video ref={ref} src="..." />;
+```
+
+### Methods & Properties
+
+| Name             | Parameters             | Return                 | Description                                       |
+| ---------------- | ---------------------- | ---------------------- | ------------------------------------------------- |
+| `play()`         |                        | `Promise`              | Attempts to begin playback of the media           |
+| `pause()`        |                        | `void`                 | Pause playback of the media                       |
+| `unmute()`       |                        | `void`                 | Unmute playback of the media                      |
+| `mute()`         |                        | `void`                 | Mute playback of the media                        |
+| `updateTime()`   | `Number`               | `void`                 | Updates the current time of the media             |
+| `updateVolume()` | `Number{min:0; max:1}` | `void`                 | Updates volume of the media                       |
+| `paused`         | read only              | `Boolean`              | Tells whether the media is paused                 |
+| `ended`          | read only              | `Boolean`              | Indicates whether the media has ended playback    |
+| `muted`          | `Boolean`              | `Boolean`              | Indicates whether the media muted                 |
+| `volume`         | `Number{min:0; max:1}` | `Number{min:0; max:1}` | Sets the volume at which the media will be played |
+| `currentTime`    | `Number`               | `Number`               | Specifies the current playback time in seconds    |
+
+### Examples
+
+```jsx
+import { useVideo } from "@/hooks";
+
+const video = useRef();
+
+const { play, paused, pause } = useVideo(video);
+
+return (
+    <React.Fragment>
+        <button onClick={paused ? play : pause}>
+            {paused ? "Play" : "Pause"}
+        </button>
+        <video ref={video} src="..." />
+    </React.Fragment>
+);
+```
+
+```jsx
+import { useAudio } from "@/hooks";
+
+const video = useRef();
+
+const { play, paused, pause } = useAudio(audio);
+
+return (
+    <React.Fragment>
+        <button onClick={paused ? play : pause}>
+            {paused ? "Play" : "Pause"}
+        </button>
+        <audio ref={audio} src="..." />
+    </React.Fragment>
+);
+```
+
+<Spacer />
+
+## 🔲 Fullscreen
+
+The `useFullscreen` hook is a wrapper around the [Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API) which adds multi-browser support.
+
+The function requires a `React.MutableRefObject` as its only parameter:
+
+```jsx
+const ref = useRef();
+const handler = useFullscreen(ref);
+
+return <video ref={ref} .../>;
+```
+
+### Methods & Properties
+
+| Name              | Parameters             | Return                 | Description                                                 |
+| ----------------- | ---------------------- | ---------------------- | ----------------------------------------------------------- |
+| `enter()`         |                        | `void`                 | Requests fullscreen from client                             |
+| `leave()`         |                        | `void`                 | Takes the currently presenting element from fullscreen mode |
+| `allowed`         | read only              | `Boolean`              | Tells whether fullscreen is allowed                         |
+| `active`          | read only              | `Boolean`              | Tells wether the element is presenting in fullscreen mode   |
+
+
+### Example
+```jsx
+import { useFullscreen } from "@/hooks";
+
+const ref = useRef();
+
+const { active, allowed, enter, leave } = useFullscreen(ref);
+
+return (
+    <React.Fragment>
+        { !!allowed && (
+            <button onClick={active ? leave : enter }>
+                { active ? "Leave Fullscreen" : "Enter Fullscreen"}
+            </button>
+        )}
+        <video ref={ref} src="..." />
+    </React.Fragment>
+);
+```
+
+<Spacer />
+
+## 💬 String translations
+
+The `useI18n` hook resolves translations provided by the global i18n property. The property is a "direct" link to your JSON files from your `lang` directory.
+
+```jsx
+import { useI18n } from '@/hooks/I18n';
+
+const __ = useI18n();
+
+return <Button onClick={...}>
+    { __('Read More') }
+</Button>
+```
+
+<Spacer />
+
+## 🐌 Slugs
+
+Use the `createSlug()` function to generate slugs.
+
+```jsx
+import { createSlug } from "@/support/Slug";
+
+const title = "Die Käsespätzle";
+
+return createSlug(title);
+// returns die-kaesespaetzle
+```
+
+Optionally replace values:
+```jsx
+return createSlug(title, ["e->i", "k->ch"]);
+// returns die-chaesispaetzli
+```
+
+<Spacer />
+
+## ⏭ A11y Skip
+
+The `Skip` component is an accessibility feature to offer keyboard users the ability to skip excessive navigations.
+
+To use this feature on your mac, enable "Use keyboad navigation to move focus between controls" in:
+
+`System Preference -> Keyboard -> Shortcuts`
+
+```jsx
+import Skip from '@utilities';
+
+return <Skip href="#main">Skip to main</Skip>
+```

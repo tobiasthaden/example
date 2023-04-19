@@ -1,0 +1,42 @@
+name: Deploy docs.convoyinteractive.com
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - uses: bahmutov/npm-install@v1
+
+      - name: Build site
+        run: npm run build-storybook
+
+      - name: Generate artifact name
+        id: artifact
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 8
+          format: 'YYYYMMDDHHmmss'
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: '${{ steps.artifact.outputs.time }}'
+          path: storybook-static
+          if-no-files-found: error
+
+      - name: Start Cleavr Deployment
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: '${{ secrets.DEPLOY_TRIGGER_HOOK_cleavr_w8e1x1kdhy }}'
+          method: 'POST'
+          timeout: 60000
+          customHeaders: '{"artifact": "${{ steps.artifact.outputs.time }}"}'

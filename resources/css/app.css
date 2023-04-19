@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 254, 249, 239, 1;
+        --text-primary: 11, 40, 50, 1;
+        --text-secondary: 40, 146, 184, 1;
+        --text-link: 254, 109, 115, 1;
+        --text-link-hover: 40, 146, 184, 1;
+        --border-color: 40, 146, 184;
+        --border-width: 1px;
+        --border-radius: 10px;
+        --button-primary-text: 254, 249, 239, 1;
+        --button-primary-text-hover: 254, 249, 239, 1;
+        --button-primary-bg: 40, 146, 184, 1;
+        --button-primary-bg-hover: 34, 124, 157, 1;
+        --button-primary-border: 40, 146, 184, 1;
+        --button-primary-border-hover: 34, 124, 157, 1;
+        --button-primary-border-width: 1px;
+        --button-secondary-text: 254, 109, 115, 1;
+        --button-secondary-text-hover: 254, 109, 115, 1;
+        --button-secondary-bg: 255, 214, 216, 0;
+        --button-secondary-bg-hover: 255, 214, 216, 1;
+        --button-secondary-border: 254, 109, 115, 1;
+        --button-secondary-border-hover: 255, 214, 216, 1;
+        --button-secondary-border-width: 1px;
+        --button-border-radius: 5px;
+        --input-border-radius: 4px;
+        --input-border-width: 1px;
+        --input-text: 40, 146, 184, 1;
+        --input-text-focus: 30, 110, 138, 1;
+        --input-text-placeholder: 140, 180, 200, 1;
+        --input-bg: 230, 240, 255, 1;
+        --input-bg-focus: 200, 240, 255, 1;
+        --input-border: 40, 146, 184, 1;
+        --input-border-focus: 30, 110, 138, 1;
+        --input-error-text: 255, 0, 0, 1;
+        --input-error-text-placeholder: 255, 160, 160, 1;
+        --input-error-bg: 255, 240, 240, 1;
+        --input-error-bg-focus: 255, 220, 220, 1;
+        --input-error-border: 255, 0, 0, 1;
+        --input-error-border-focus: 255, 20, 20, 1;
+        --option-bg-hover: 34, 124, 157, 1;
+        --option-text-hover: 255, 255, 200, 1;
+        --option-error-bg-hover: 255, 20, 20, 1;
+        --option-error-text-hover: 255, 255, 255, 1;
+    }
+}
